@@ -1,0 +1,82 @@
+
+include ../partials/navbar.pug
+            <br></br>
+                script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js")
+                .chart-container
+                canvas#myChart       
+                script.
+                  var ctx = document.getElementById("myChart").getContext('2d');
+                  Chart.defaults.global.defaultFontFamily='Lato';
+                  Chart.defaults.global.defaultFontSize=18;
+
+                  Chart.defaults.global.defaultFontColor='#777';
+
+                  ctx.canvas.parentNode.style.width = '90%'
+                  ctx.canvas.parentNode.style.height = '70%'
+                  var humidity_data = JSON.parse('!{humidity_data}');    
+                  var timestamp_data = JSON.parse('!{timestamp_data}'); 
+                  var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                    labels: timestamp_data,
+                    datasets: [{
+                    label: 'Humidity',
+                    data: humidity_data,
+                    fill:true,
+                    backgroundColor: 'rgba(0,0,255,0.6)',
+                    borderColor: 'rgba(0,0,255,0.6)',
+                    
+
+                    
+                
+                    borderWidth: 1,
+                    hoverBorderWidth:3,
+                    hoverBorderColor:'#000'
+                    }]
+                    },
+                    options: {
+                      title: {
+                        display:true,
+                        text:'Humidity variation over time',
+                        fontSize:25,
+                        fontColor:"#000"
+                      },
+                      legend:{
+                        position:'right',
+                        labels:{
+                          fontColor:'#000'
+                        }
+                      },
+                      layout: {
+                        padding:{
+                          left:50,
+                          right:0,
+                          bottom:0,
+                          top:0
+                        }
+                      },
+                    scales: {
+                    yAxes: [{
+                    ticks: {
+                    beginAtZero:false,
+                    suggestedMin: 70,
+                    
+                    },
+                    display:true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Humidity"
+                    }
+                    }],
+                    xAxes: [{
+                     
+                      display:true,
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Time'
+                      }
+                      
+                    }]
+                    }
+                    }
+                    }); 

@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+  head
+    block content
+
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='/favicon.ico')
+
+    title IOTA MAM App
+
+    link(
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css"
+      integrity="sha256-NJWeQ+bs82iAeoT5Ktmqbi3NXwxcHlfaVejzJI2dklU="
+      crossorigin="anonymous"
+    )
+    link(href='/jumbotron.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+      a.navbar-brand(href='#') IOTA
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/')
+              | Home 
+              span.sr-only (current)
+
+          li.nav-item.dropdown.active
+            a#dropdown01.nav-link.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Sensor
+            .dropdown-menu(aria-labelledby='dropdown01')
+              a.dropdown-item(href='/temperature') Temperature
+              a.dropdown-item(href='/humidity') Humidity
+
+
+
+    footer.container
+      p © Company 2017
+
+    script(
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"
+      integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+      crossorigin="anonymous"
+    )
+    script(
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"
+      integrity="sha256-78rSZBnBJXmJ5VGuWL8mkunvhy94g99Rw53bssjHSUk="
+      crossorigin="anonymous"
+    )
+    
+
+
+
+
+
+
+
+

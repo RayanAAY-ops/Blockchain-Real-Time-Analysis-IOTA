@@ -1,0 +1,79 @@
+include ../partials/navbar.pug
+            <br></br>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                .chart-container
+                canvas#myChart       
+                script.
+                  var ctx = document.getElementById("myChart").getContext('2d');
+                  Chart.defaults.global.defaultFontFamily='Lato';
+                  Chart.defaults.global.defaultFontSize=18;
+
+                  Chart.defaults.global.defaultFontColor='#777';
+
+                  ctx.canvas.parentNode.style.width = '100%'
+                  ctx.canvas.parentNode.style.height = '100%'
+                  var temperature_data = JSON.parse('!{temperature_data}');    
+                  var timestamp_data = JSON.parse('!{timestamp_data}'); 
+                  var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                    labels: timestamp_data,
+                    datasets: [{
+                    label: 'Temperature',
+                    data: temperature_data,
+                    fill:true,
+                    backgroundColor: 'rgba(251, 85, 85, 0.4)',
+                    borderColor: 'rgba(251, 85, 85, 0.4)',
+                    borderWidth: 1,
+                    hoverBorderWidth:3,
+                    hoverBorderColor:'#000'
+                    }]
+                    },
+                    options: {
+                      title: {
+                        display:true,
+                        text:'Temperature variation over time',
+                        fontSize:25,
+                        fontColor:"#000"
+                      },
+                      legend:{
+                        position:'right',
+                        labels:{
+                          fontColor:'#000'
+                        }
+                      },
+                      layout: {
+                        padding:{
+                          left:50,
+                          right:0,
+                          bottom:0,
+                          top:0
+                        }
+                      },
+                    scales: {
+                    yAxes: [{
+                    ticks: {
+                    beginAtZero:false,
+                    suggestedMin: 25,
+                    suggestedMax: 35
+
+                    },
+                    display:true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Temperature"
+                    }
+                    }],
+                    xAxes: [{
+                      beginAtZero:false,
+
+                      display:true,
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Time'
+                      }
+                      
+                    }]
+                    }
+                    }
+                    }); 

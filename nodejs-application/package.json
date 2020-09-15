@@ -1,0 +1,28 @@
+{
+  "name": "client",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+
+  "dependencies": {
+    "@iota/converter": "^1.0.0-beta.30",
+    "assert": "^1.4.1",
+    "chartjs": "^0.3.24",
+    "cookie-parser": "~1.4.3",
+    "cron": "^1.8.2",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "mam": "^1.11.19",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.2.5",
+    "morgan": "~1.9.0",
+    "nodemon": "^2.0.4",
+    "pug": "^2.0.3"
+  }
+}
